@@ -1,0 +1,31 @@
+Version Notes (XephConnect v0.6):
+
+Designed to provide the following connectivity at the tool from the Duet Wifi + Duex5:
+
+  * Stepper motors (4x) [4-wire] - conceptually to drive the four extruders in the M3D QuadFusion, but could theoretically connect any four steppers.
+  * Hotend thermistor [2-wire]
+  * Hotend heater cartridge [2-wire] {see note on WIRING below}
+  * Hotend/Heatsink fan [2-wire, always on] {see note on FANS below}
+  * Part cooling fan [2-wire, PWM] {see note on FANS below}
+  * X-stop [2-wire]
+  * Y-stop [2-wire]
+  * Z-probe [4/5-wire] - ONLY USE ONE OF THESE.  The 4-wire is for standard z-probes (currently tested with the Precision Piezo Orion), and the 5-wire should work with the BL-touch, though this is untested.
+  
+  
+FANS:
+-----
+
+An additional feature that is being worked on for the board is to bring up 5v, 12v, and 24v power connections and allow both fans to have their voltage selected via jumper. On this version it does work, though the 24v and VOUT pads are larger than necessary, and the silkscreen gets hidden a bit by the jumper headers.  I'm currently running my heatsink fan, always on, at 12v and my parts cooling fan, PWM, at 24v.  The +12v draw comes from the static 12v header on the Duex5.  The +24v can come from any 24v source (generally any PWM power pin on either board).  The +5v isn't hooked up in my current testing.
+
+
+POWER:
+------
+
+While the bandwidth on the wiring harness allows for FAN1- and FAN2- PWM connections to also be run, I don't currently have them wired or have headers on the board for them.
+
++5v, +12v, and +24v as well as GND are common rails/planes.  Take care having too many devices on a single power setting to prevent overdraw of power from a single pin on the Duet/Duex.  Fans typically use very little power, but LEDs can consume much more.  GND is dual-wired back to ground to the Duet board (pin 5 from the harness) and Duex board (ping 30 from the harness).  Given that the two boards _should_ be wired in such a way that they also share a ground (one is pigtailed to the other), this allows a common ground voltage throughout the system.
+
+WIRING:
+-------
+
+Just as the board traces are varying widths for different paths, the wires for your harness also have different requirements.  22AWG (and even 24AWG) can be used for signals (THERM1, Z_IN, Z_MOD, +3.3v for Z_PROBE, X_STOP, Y_STOP). 22AWG (but not 24AWG) can be used for the steppers, +5v, +12v, and +24v leads, FAN0-.  20AWG is recommended for GND and the heater cartridge.
