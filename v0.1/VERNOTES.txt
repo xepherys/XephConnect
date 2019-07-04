@@ -15,3 +15,11 @@ FANS:
 An additional feature that is being worked on for the board is to bring up 5v, 12v, and 24v power connections and allow both fans to have their voltage selected via jumper. On this version it does work, though the 24v and VOUT pads are larger than necessary, and the silkscreen gets hidden a bit by the jumper headers.  I'm currently running my heatsink fan, always on, at 12v and my parts cooling fan, PWM, at 24v.  The +12v draw comes from the static 12v header on the Duex5.  The +24v can come from any 24v source (generally any PWM power pin on either board).  The +5v isn't hooked up in my current testing.
 
 While the bandwidth on the wiring harness allows for FAN1- and FAN2- PWM connections to also be run, I don't currently have them wired or have headers on the board for them.
+
+
+
+ISSUES:
+-------
+
+  * Some noise/crosstalk from at least e0 is seen on the Z_PROBE pin.  I believe this is from the auto-routing of traces and proximity between traces.
+  * Screw holes aren't aligned, and the two "back" holes don't play nicely with the Molex connectors for the extruders (some physical interference).
