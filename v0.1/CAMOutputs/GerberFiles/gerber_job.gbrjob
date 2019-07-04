@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-07-04T14:27:03Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.3.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.671119,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "XephConnect_v0.1"
+        },
+        "Owner": "Xepherys Xepherys <xepherys@gmail.com>",
+        "Size": {
+            "X": 41.5,
+            "Y": 44
+        }
+    }
+}
